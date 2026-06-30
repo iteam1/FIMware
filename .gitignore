@@ -1,4 +1,11 @@
+CLAUDE.md
+CLAUDE.local.md
+.mcp.json
+.worktreeinclude
+.veronica-lock
+.understand-anything/
+.gitnexus/
+
 node_modules/
 packages/*/node_modules/
 packages/extension/out/
-.claude/
