@@ -45,6 +45,26 @@ Then open the project in VSCode, click into a file, and `/whisper`.
 
 > Restarted the broker? It forgets everything — reload the VSCode window so the extension re-registers.
 
+## Subscription ran out? Use GLM
+
+[Z.ai's GLM Coding Plan](https://z.ai/subscribe) is a flat-rate alternative (~$10–80/month)
+with a native Anthropic-compatible endpoint — no proxy, no Ollama, just swap two env vars:
+
+```bash
+export ANTHROPIC_BASE_URL="https://api.z.ai/api/coding/paas/v4"
+export ANTHROPIC_AUTH_TOKEN="your-zai-api-key"
+# then use claude as normal — /whisper works unchanged
+```
+
+Or persist it permanently:
+
+```bash
+claude config set -g env.ANTHROPIC_BASE_URL "https://api.z.ai/api/coding/paas/v4"
+claude config set -g env.ANTHROPIC_AUTH_TOKEN "your-zai-api-key"
+```
+
+See [`docs/local-backends.md`](./docs/local-backends.md) for Ollama and LM Studio options too.
+
 ## First time?
 
 See [`GUIDELINE.md`](./GUIDELINE.md) for the one-time extension build + symlink install.
@@ -69,3 +89,4 @@ See [`GUIDELINE.md`](./GUIDELINE.md) for the one-time extension build + symlink 
 - [Microsoft - Language Server Protocol](https://microsoft.github.io/language-server-protocol/)
 - [LSP From Scratch](https://www.youtube.com/watch?v=p0Vlz66AFNw&list=PLq5tGLDKHlW-owkJWZrueldeR6mbqBvOg)
 - [Minimum Viable VS Code Language Server Extension](https://github.com/semanticart/minimum-viable-vscode-language-server-extension)
+- [BifrostMCP](https://github.com/biegehydra/BifrostMCP)
