@@ -47,34 +47,8 @@ Then open the project in VSCode, click into a file, and `/whisper`.
 
 ## Alternative backends
 
-Whisperer doesn't care what model runs the completion. Swap the backend, `/whisper` keeps working.
-
-### GLM / Z.ai (cloud, flat-rate)
-
-[Z.ai's GLM Coding Plan](https://z.ai/subscribe) (~$10–80/month) has a native
-Anthropic-compatible endpoint — no proxy needed:
-
-```bash
-export ANTHROPIC_BASE_URL="https://api.z.ai/api/coding/paas/v4"
-export ANTHROPIC_AUTH_TOKEN="your-zai-api-key"
-claude --model glm-4.7
-```
-
-### Ollama (local)
-
-Ollama speaks OpenAI format, so you need LiteLLM as a shim:
-
-```bash
-litellm --model ollama/qwen2.5-coder:7b --port 4000
-
-export ANTHROPIC_BASE_URL="http://localhost:4000"
-export ANTHROPIC_AUTH_TOKEN="sk-local"
-export CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY=1
-```
-
-To persist either config: `claude config set -g env.ANTHROPIC_BASE_URL "<url>"` and `claude config set -g env.ANTHROPIC_AUTH_TOKEN "<key>"`.
-
-See [`docs/local-backends.md`](./docs/local-backends.md) for more options.
+Whisperer is model-agnostic — swap the backend, `/whisper` keeps working unchanged.
+GLM (Z.ai) and Ollama are both supported. See [`docs/local-backends.md`](./docs/local-backends.md).
 
 ## First time?
 
